@@ -75,7 +75,9 @@ const fetchvalue = (data)=>{
      </div>
      )
    })
- }else {
+ }else if(data === undefined||null){
+    history.push('/register')
+ }else{
    return <h2 className="text-center">No Items in cart,login first</h2>
  }
 }

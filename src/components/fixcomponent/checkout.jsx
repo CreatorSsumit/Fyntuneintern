@@ -39,8 +39,7 @@ const [number, setnumber] = useState('')
   var upadte = {name,email,number,address,street,zip}
   
   setregisteruser(upadte)
-  console.log(upadte)
-
+  history.push('/cart/orderconfirm' ,{state:registeruser})
 }
 
 
@@ -91,8 +90,17 @@ const [number, setnumber] = useState('')
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">checkout</button>
+  <div class="alert alert-primary" role="alert">
+  Total price - {totalprice}
+</div>
+  <button type="submit" class="btn btn-primary w-100">Placed Order</button>
 </form>
+
+
+
+
+
+
   </div>
     )
 }
