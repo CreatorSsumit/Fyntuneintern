@@ -8,7 +8,8 @@ export default function(state={},action){
             return{...state,show:action.payload}
         case 'GET_CART':
                 return{...state,cartall:action.payload}
-          
+        case 'GET_USER':
+                    return{...state,user:action.payload}    
         default:
             return state
     

@@ -12,6 +12,7 @@ import Headers from "./components/fixcomponent/header"
 import Productlistpage from './components/fixcomponent/productpage'
 import Productinfo from "./components/fixcomponent/productinfo" 
 import Cart from "./components/fixcomponent/cart"
+import Checkout from "./components/fixcomponent/checkout"
 const createStoreMiddeleWrare = applyMiddleware(PromiseWare)(createStore)
 
 ReactDOM.render(
@@ -21,7 +22,7 @@ ReactDOM.render(
  <Headers />
  <Route exact path='/cart' component={Cart} />
  <Route exact path="/product/:productinfo" component={Productinfo} />
- 
+ <Route exact path='/cart/:checkoutid' component={Checkout} />
  <Route exact path="/register" component={App} />
  <Route exact path="/" component={Productlistpage} />
   

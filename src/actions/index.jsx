@@ -61,12 +61,12 @@ var data = [{
        
    }
 
-   export async function login(value){
-  console.log(value)
+   export  function login(value){
+ 
    return{
 
     type:'GET_USER',
-    payload:null
+    payload:value
 
 }
       

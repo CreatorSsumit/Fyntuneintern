@@ -38,14 +38,14 @@ const userdata = {
   password:passwordfield,
   number:numberfield
 }
+ props.login(userdata)
  setusers(userdata)
- props.login(users)
+ history.push('/')
  
 }
 
 
-   
-
+  
     return (
         <div>
          

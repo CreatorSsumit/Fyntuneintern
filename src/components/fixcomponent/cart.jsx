@@ -1,6 +1,8 @@
 import React ,{useEffect, useState} from 'react'
 import {connect} from "react-redux";
 import {useHistory} from "react-router-dom"
+import crypto from "crypto"
+
 
 function Cart(props) {
   const history = useHistory()
@@ -119,9 +121,12 @@ const totalpricevalue =(d)=>{
   
 }
 
+const sendtptice = (state)=>{
 
-const sendtptice = ()=>{
-console.log(totalpricevalue(state))
+  const random = Math.floor(Math.random()*100)
+
+history.push(`/cart/${random}`,{whole:state,data:totalpricevalue(state)})
+
 }
 
 
@@ -130,6 +135,7 @@ console.log(totalpricevalue(state))
          <h2 className="text-center display-3">Your Cart</h2>
           <div className="row p-5">
   {showempty? <h2 className='display-5 text-center'>No item in cart</h2> : fetchvalue(state)  }
+  
 </div>
 
 <table className="table container">
@@ -145,7 +151,7 @@ console.log(totalpricevalue(state))
     {tablevalue(state)}
     <tr>
   <th scope="row">Total Price <span style={{fontSize:"17px",color:"orange"}}> &nbsp; {totalpricevalue(state)} </span></th>
-      <td colspan="2"><button className='btn btn-primary' onClick={()=>sendtptice()}>Checkout</button></td>
+      <td colspan="2"><button className='btn btn-primary' onClick={()=>sendtptice(state)}>Checkout</button></td>
      
     </tr>
   </tbody>
