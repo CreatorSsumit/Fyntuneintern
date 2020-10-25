@@ -8,6 +8,7 @@ function Cart(props) {
   const history = useHistory()
   const [state, setstate] = useState([])
   const [showempty, setshowempty] = useState(false)
+  const [hide, sethide] = useState(true)
   
   
 
@@ -58,10 +59,12 @@ const fetchdata = (data)=>{
 const fetchvalue = (data)=>{
   
  if(data){
+  
    return data.map(e=>{
+    
      return(
-       <div key={e.id} className="col-sm-3">
-       <div className="card">
+       <div key={e.id} className="col-sm-3 mt-2">
+       <div style={{border:"none",background:"#c4f2e0"}} className="card">
          <div className="card-body">
      <h5 className="card-title">{e.brandname}</h5>
        <p className="card-text">{e.info}</p>
@@ -75,10 +78,11 @@ const fetchvalue = (data)=>{
      </div>
      )
    })
- }else if(data === undefined||null){
+ }else if(props.userFound === undefined||null){
     history.push('/register')
  }else{
-   return <h2 className="text-center">No Items in cart,login first</h2>
+   
+   return <h2 className="text-center">No Items in cart</h2>
  }
 }
 
@@ -133,14 +137,15 @@ history.push(`/cart/${random}`,{whole:state,data:totalpricevalue(state)})
 
 
     return (
-        <div>
-         <h2 className="text-center display-3">Your Cart</h2>
-          <div className="row p-5">
+        <div className="jumbotron">
+         <h2 className="text-center display-3 ">Your Cart</h2>
+          <div className="row p-2">
   {showempty? <h2 className='display-5 text-center'>No item in cart</h2> : fetchvalue(state)  }
   
 </div>
 
-<table className="table container">
+{showempty ? null : 
+<table style={{background:"#e3e3e3"}} className="table container jumbotron">
   <thead>
     <tr>
       <th scope="col">Product</th>
@@ -158,6 +163,7 @@ history.push(`/cart/${random}`,{whole:state,data:totalpricevalue(state)})
     </tr>
   </tbody>
 </table>
+}
 
        </div>
     )
@@ -166,7 +172,8 @@ history.push(`/cart/${random}`,{whole:state,data:totalpricevalue(state)})
 function mapStateToProps(state){
 
   return{
-    cartdata:state.businessinfo.cartall
+    cartdata:state.businessinfo.cartall,
+    userFound:state.businessinfo.user
   }
 }
 

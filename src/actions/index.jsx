@@ -30,7 +30,8 @@ var data = [{
   info:'Mens Air Max Advantage 3 Running Shoes',
   price:3000,
   quantity:1
-}
+},
+
 ]
 
 

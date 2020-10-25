@@ -39,13 +39,13 @@ const [number, setnumber] = useState('')
   var upadte = {name,email,number,address,street,zip}
   
   setregisteruser(upadte)
-  history.push('/cart/orderconfirm' ,{state:registeruser})
+  history.push('/cart/orderconfirm' ,{state:upadte})
 }
 
 
 
     return (
-        <div>
+        <div className="jumbotron">
           <h3 style={{fontWeight:300}} className="display-5 text-center mt-4">Add Your address and info</h3>
   <form className="container mt-5 p-4" onSubmit={onupdate}>
   <div class="form-row">
